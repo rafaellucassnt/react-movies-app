@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import './MovieDetail.css';
 import { useGetMovieDetail } from "../../hooks/useGetMovieDetail";
 import { Link } from "react-router-dom";
+import { MovieImage } from '../../components/MovieImage/MovieImage';
 
 export function MovieDetail() {
     const { movieId } = useParams();
@@ -17,13 +18,11 @@ export function MovieDetail() {
 
     return (
         <section className="movie-detail">
+            <Link className="btn-primary back-to-home-button" to="/">Voltar para Home</Link>
             <div className="container card-movie-detail">
                 <div className="row">
                     <div className="movie-poster-details">
-                        <img
-                            src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
-                            alt=""
-                        />
+                        <MovieImage path={movie.poster_path} size={400} />
                     </div>
                     <div className="description">
                         <h1>{movie.title}</h1>
@@ -41,7 +40,6 @@ export function MovieDetail() {
                         </ul>
                         <h2>Overview</h2>
                         <p className="movie-overview">{movie.overview}</p>
-                        <Link className="btn-primary back-to-home-button" to="/">Voltar para Home</Link>
                     </div>
                 </div>
             </div>

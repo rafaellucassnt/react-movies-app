@@ -5,13 +5,13 @@
     width: 200px;
 }
 
-.movie-poster {
+/* .movie-poster {
     width: 100%;
     height: auto;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-    /* transition: transform 0.2s ease; */
-}
+
+} */
 
 .average {
     color: #009688;
