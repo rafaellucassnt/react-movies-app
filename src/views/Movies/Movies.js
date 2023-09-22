@@ -1,26 +1,23 @@
-import { useEffect, useState } from "react";
-import { Movie } from "../../components/Movie/Movie";
-import { MoviesService } from "../../service/MovieService";
-import './Movies.css';
+import { useState } from "react";
+import { useGetMovies } from "../../hooks/useGetMovies";
+import { useSearchMovieByTitle } from "../../hooks/useSearchMovieByTitle";
+import { SearchMovies } from "../../components/SearchMovies/SearchMovies";
+import { MoviesList } from "../../components/MoviesList/MoviesList";
 
-export const Movies = () => {
-    const [movies, setMovies] = useState([]);
-    const getMovies = async () => {
-        const {
-            data: { results },
-        } = await MoviesService.getMovies();
-        setMovies(results);
-    };
-    useEffect(() => {
-        getMovies();
-    }, []);
+
+export function Movies() {
+    const [searchQuery, setSearchQuery] = useState("");
+    const movies = useGetMovies();
+    const searchResults = useSearchMovieByTitle(searchQuery);
+
+    function handleOnSearch(movieTitle) {
+        setSearchQuery(movieTitle);
+    }
+
     return (
-        <div className="container">
-            <div className="movie-list">
-                {movies.map((movie) => (
-                    <Movie key={movie.id} movie={movie} />
-                ))}
-            </div>
-        </div>
+        <>
+            <SearchMovies onSearch={handleOnSearch} />
+            <MoviesList movies={searchResults.length > 0 ? searchResults : movies} />
+        </>
     );
-};
+}
