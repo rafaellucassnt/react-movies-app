@@ -1,0 +1,31 @@
+.header {
+    padding: 50px;
+    margin-bottom: 70px;
+    text-align: center;
+    background: #171225;
+}
+
+.header h3 {
+    color: #fff;
+}
+
+.first {
+    color: #9171f8;
+}
+
+.second {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.footer {
+    background: #171225;
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
