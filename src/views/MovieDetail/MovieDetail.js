@@ -18,7 +18,7 @@ export function MovieDetail() {
 
     return (
         <section className="movie-detail">
-            <Link className="btn-primary back-to-home-button" to="/">Voltar para Home</Link>
+            <Link className="btn btn-primary back-to-home-button" to="/">Voltar para Home</Link>
             <div className="container card-movie-detail">
                 <div className="row">
                     <div className="movie-poster-details">
