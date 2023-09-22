@@ -1,14 +1,20 @@
-import axios from 'axios';
-
-const API_KEY = process.env.REACT_APP_API_KEY_THEMOVIE_DB;
-const BASE_URL = 'https://api.themoviedb.org/3/';
-const withBaseUrl = (path) => `${BASE_URL}${path}?api_key=${API_KEY}`
+import { api } from "../config/http";
 
 export class MoviesService {
     static getMovies() {
-        return axios(withBaseUrl('movie/popular'))
+        return api.get("movie/popular");
     }
-    static getMovieDetail(id) {
-        return axios(withBaseUrl(`movie/${id}`))
+
+    // Buscar detalhes de um filme
+    static getMovieDetail(movieId) {
+        return api.get(`movie/${movieId}`);
+    }
+
+    static searchByMovieTitle(movieTitle) {
+        return api.get("search/movie", {
+            params: {
+                query: movieTitle,
+            }
+        });
     }
 }
