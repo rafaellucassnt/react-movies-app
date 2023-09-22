@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import './Movie.css';
+import './MovieItem.css';
 import { MovieImage } from "../MovieImage/MovieImage";
 
-export const Movie = ({ movie }) => {
+export const MovieItem = ({ movie }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleMouseEnter = () => {
@@ -20,11 +20,6 @@ export const Movie = ({ movie }) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            {/* <img
-                className="movie-poster"
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                alt={`${movie.title} Poster`}
-            /> */}
             <MovieImage path={movie.poster_path} />
             {isModalOpen && (
                 <div className="modal">

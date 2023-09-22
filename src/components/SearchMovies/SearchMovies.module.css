@@ -1,0 +1,18 @@
+.searchContainer {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.searchContainer input {
+    font-size: 18px;
+    width: 350px;
+}
+
+.searchContainer input {
+    border: none;
+    background-color: #2f2b3a;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    margin: 5px;
+}
